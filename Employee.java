@@ -56,6 +56,6 @@ public class Employee {
     }
 
     public String getEmp(){
-        return "Id:"+this.id +"| name:"+this.name+"| salary:"+this.salary+"| attendance"+this.attendance+"| leaves taken:"+this.leavesTaken;
+        return "Id:"+this.id +"| name:"+this.name+"| salary:"+this.salary+"| attendance:"+this.attendance+"| leaves taken:"+this.leavesTaken;
     }
 }
