@@ -23,15 +23,23 @@ public class Employee {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public double getSalary() {
         return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
     }
 
     public int getAttendance() {
         return attendance;
     }
 
-    protected void setAttendance(int attendance) {
+    public void setAttendance(int attendance) {
         this.attendance = attendance;
     }
 
@@ -39,12 +47,11 @@ public class Employee {
         return leavesTaken;
     }
 
-    public void applyForLeave(int leaveDays) {
-        if (leaveDays + leavesTaken <= 30) {
+    public boolean applyForLeave(int leaveDays) {
+        if (leaveDays <= 30 && leavesTaken + leaveDays <= 30) {
             leavesTaken += leaveDays;
-            System.out.println("Leave application accepted.");
-        } else {
-            System.out.println("Leave application denied. You have already taken 30 leaves in the year.");
+            return true;
         }
+        return false;
     }
 }

@@ -1,59 +1,67 @@
 import java.util.Scanner;
 
-public class mainClass {
+public class main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
-        // Initial setup - Admin creates username and password
-        System.out.println("Welcome! Let's set up your admin account.");
-        System.out.print("Enter admin username: ");
+        System.out.print("Enter Admin Username: ");
         String adminUsername = scanner.nextLine();
-        System.out.print("Enter admin password: ");
+        System.out.print("Enter Admin Password: ");
         String adminPassword = scanner.nextLine();
         Admin admin = new Admin(adminUsername, adminPassword);
 
-        // Admin login
-        System.out.println("\nAdmin Login");
-        System.out.print("Username: ");
-        String username = scanner.nextLine();
-        System.out.print("Password: ");
-        String password = scanner.nextLine();
-
-        // Authentication
-        if (!admin.authenticate(username, password)) {
-            System.out.println("Invalid username or password. Exiting...");
-            System.exit(0);
-        }
-
-        // Main menu
         while (true) {
             System.out.println("\nEmployee Management System Menu:");
             System.out.println("1. Add Employee");
             System.out.println("2. Delete Employee");
-            System.out.println("3. Exit");
+            System.out.println("3. Search Employee by ID");
+            System.out.println("4. Search Employee by Name");
+            System.out.println("5. View All Employees");
+            System.out.println("6. Update Employee Details");
+            System.out.println("7. Mark Attendance");
+            System.out.println("8. Handle Leave Application");
+            System.out.println("9. Generate Payroll Report");
+            System.out.println("10. Exit");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
 
             switch (choice) {
-                case 1:{
-                    System.out.println("Enter id:");
-                    int id=scanner.nextInt();
-                    System.out.println("Enter name:");
-                    String name=scanner.next();
-                    System.out.println("Enter salary:");
-                    double salary=scanner.nextDouble();
-                    Employee employee=new Employee(id,name,salary);
-                    admin.addEmployee(employee);
-                    employee=null;
-                
+                case 1:
+                    admin.addEmployee(scanner);
                     break;
-                }
                 case 2:
-                    System.out.println("Enter id:");
-                    int id=scanner.nextInt();
-                    admin.deleteEmployee(id);
+                    System.out.print("Enter Employee ID to delete: ");
+                    int deleteId = scanner.nextInt();
+                    admin.deleteEmployee(deleteId);
                     break;
                 case 3:
+                    admin.searchEmployeeByID(scanner);
+                    break;
+                case 4:
+                    admin.searchEmployeeByName(scanner);
+                    break;
+                case 5:
+                    System.out.println("view all Employee");
+                    admin.viewAllEmps();
+
+                    break;
+                case 6:
+                    admin.updateEmployeeDetails(scanner);
+                    break;
+                case 7:
+                    System.out.print("Enter Employee ID to mark attendance: ");
+                    int empId = scanner.nextInt();
+                    System.out.print("Enter Days Present: ");
+                    int daysPresent = scanner.nextInt();
+                    admin.markAttendance(empId, daysPresent);
+                    break;
+                case 8:
+                    admin.handleLeaveApplication(scanner);
+                    break;
+                case 9:
+                    admin.generatePayrollReport();
+                    break;
+                case 10:
                     System.out.println("Exiting...");
                     scanner.close();
                     System.exit(0);
