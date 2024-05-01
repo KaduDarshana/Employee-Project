@@ -54,4 +54,8 @@ public class Employee {
         }
         return false;
     }
+
+    public String getEmp(){
+        return "Id:"+this.id +"| name:"+this.name+"| salary:"+this.salary+"| attendance"+this.attendance+"| leaves taken:"+this.leavesTaken;
+    }
 }

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class main {
+public class mainClass {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter Admin Username: ");

@@ -103,7 +103,7 @@ public class Admin {
 
     public void viewAllEmps() {
         for (Employee emp : employees) {
-            System.out.println(employees);
+            System.out.println(emp.getEmp());
         }
 
     }
