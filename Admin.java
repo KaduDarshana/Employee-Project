@@ -159,8 +159,7 @@ public class Admin {
 
     public Employee[] getEmployees() {
         // TODO Auto-generated method stub
-        // throw new UnsupportedOperationException("Unimplemented method
-        // 'getEmployees'");
-        return employees;
+        throw new UnsupportedOperationException("Unimplemented method'getEmployees'");
+        
     }
 }
